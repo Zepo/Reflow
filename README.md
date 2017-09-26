@@ -64,7 +64,7 @@ As our application grows in scale, the whole state can get really bloated. Reflo
 
 ### Actions
 
-Actions are defined as normal methods on store module, except with a name prefix "action". Reflow will do some magic tricks with that.
+Actions are defined as normal methods on store modules, except with a name prefix "action". Reflow will do some magic tricks with that.
 
 ```objective-c
 @implementation TodoStore
@@ -123,7 +123,7 @@ When subclassing `RFStore`, we can subscribe to all actions on a store module.
 @end
 ```
 
-On completion of each call of a action method, a store module will execute the block passed in `subscribe:`, passing in an instance of `RFAction` as a parameter of the block. Each instance of `RFAction` contains infomation like the `object` that the action method is sent to, the `selector` of the action method and the `arguments` that are passed to the action method.
+On completion of each call of a action method, a store module will execute the block passed in `subscribe:`, passing in an instance of `RFAction` as a parameter of the block. Each instance of `RFAction` contains infomation like the `object` that the action method is sent to, the `selector` of the action method and the `arguments` that are passed in to the action method.
 
 ```objective-c
 @interface RFAction : NSObject
