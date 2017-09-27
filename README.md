@@ -32,7 +32,7 @@ When writing Objective-C code, we are used to defining properties of models as `
 
 A simple approach to the crash here might be defining the properties as `atomic`. However this approach doesn't solve other issues like race condition.
 
-Another danger is not keeping views up to date since propeties are mutable and we can change them any where throughout the app. If the `todos` property from the above example is binding to the cells of a table view, adding or removing a message and forgetting to notify the table view to do `reloadData` will cause another crash with a `NSInternalInconsistencyException` in the table view.
+Another danger is not keeping views up to date since propeties are mutable and we can change them any where throughout the app. If the `todos` property from the above example is binding to the cells of a table view, adding or removing a todo item and forgetting to notify the table view to do `reloadData` will cause another crash with a `NSInternalInconsistencyException` in the table view.
 
 ## Core Concepts
 
