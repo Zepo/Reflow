@@ -27,12 +27,14 @@
     self.todos = [self.todoStore visibleTodos];
     self.filterButton.title = [self stringFromVisibilityFilter:[self.todoStore visibilityFilter]];
     
+    __weak typeof(self) weakSelf = self;
     self.subscription = [self.todoStore subscribe:^(RFAction *action) {
+        __strong typeof(self) strongSelf = weakSelf;
         if (action.selector == @selector(actionSetVisibilityFilter:)) {
-            self.filterButton.title = [self stringFromVisibilityFilter:[self.todoStore visibilityFilter]];
+            strongSelf.filterButton.title = [strongSelf stringFromVisibilityFilter:[strongSelf.todoStore visibilityFilter]];
         }
-        self.todos = [self.todoStore visibleTodos];
-        [self.tableView reloadData];
+        strongSelf.todos = [strongSelf.todoStore visibleTodos];
+        [strongSelf.tableView reloadData];
     }];
 }
 
